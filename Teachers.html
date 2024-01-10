@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAH Teachers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      a {
+          color: white;
+          padding: 20px;
+          text-decoration: none;
+      }
+
+      
+      #logo {
+          background-color: rgb(48, 199, 48);
+          color: rgb(0, 0, 0);
+      }
+
+      
+      @media (max-width: 576px) {
+          .jumbotron {
+              font-size: 150%;
+          }
+      }
+  </style>
+  <script>
+    function getCurrentDateTime() {
+            var now = new Date();
+            var dateTimeString = now.toLocaleString();
+            document.getElementById('datetime').innerHTML = dateTimeString;
+        }
+  </script>
+
+</head>
+<body style="background-color: #cfcecedb;">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(44, 121, 44);">
+    <div class="container-fluid">
+        <a class="navbar-brand" id="logo" href="#">YAH</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Teachers.html">Teachers</a></li>
+                <li class="nav-item"><a class="nav-link" href="worksheets.html">WorkSheets</a></li>
+                <li class="nav-item"><a class="nav-link" href="siteMap.html">Site Map</a></li>
+                <li class="nav-item"><a class="nav-link" href="review.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="GPA1.html">GPA</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="container mt-4">
+  <div class="row">
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="anas.jpg" class="card-img-top" alt="T.Anas Al-Bluwe">
+              <div class="card-body">
+                  <h5 class="card-title">T.Anas Al-Bluwe</h5>
+                  <a href="T1.html" class="btn btn-primary" style="background: green;">Show Bio</a>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="shadi.png" class="card-img-top" alt="T.Shadi Al-Najjar">
+              <div class="card-body">
+                  <h5 class="card-title">T.Shadi Al-Najjar</h5>
+                  <a href="T2.html" class="btn btn-primary" style="background-color: green;">Show Bio</a>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+          <div class="card">
+              <img src="shadir.png" class="card-img-top" alt="T.Shadi Al-Ramahi">
+              <div class="card-body">
+                  <h5 class="card-title">T.Shadi Al-Ramahi</h5>
+                  <a href="T3.html" class="btn btn-primary" style="background-color: green;">Show Bio</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br><br>
+<span id="datetime"></span>
+</section>
+
+
+<script>
+  getCurrentDateTime();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

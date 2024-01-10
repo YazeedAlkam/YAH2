@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .error {
+            color: red;
+        }
+        a{
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+  }
+
+
+   #logo {
+    background-color: rgb(48, 199, 48);
+    color: rgb(0, 0, 0);
+    }
+
+ 
+   @media (max-width: 576px) {
+    .jumbotron {
+        font-size: 150%;
+    }
+    }
+    </style>
+    <script> function getCurrentDateTime() {
+        var now = new Date();
+        var dateTimeString = now.toLocaleString();
+        document.getElementById('datetime').innerHTML = dateTimeString;
+    }</script>
+</head>
+<body style="background-color: #cfcecedb;;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(44, 121, 44);">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="logo" href="#">YAH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Teachers.html">Teachers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Worksheets.html">WorkSheets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sitemap.html">Site Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="review.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="GPA.html">GPA</a></li>
+                </ul>
+            </div>
+     </div>
+    </nav>
+    <div style="text-align: center;">
+    <h2>GPA Calculator</h2>
+
+    <form>
+
+       <span style="color: green;">(optional)</span> <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter First Name">
+        <span id="errorFirstName" class="error"></span>
+        <br><br>
+
+        <span style="color: green;">(optional)  </span><label for="lastName"> School:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" id="lastName" placeholder="Enter School Name">
+        <span id="errorLastName" class="error"></span>
+        <br><br>
+
+        <span style="color: red;">(required) </span><label for="mark1">Mark 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="number" id="mark1" placeholder="Enter Mark 1">
+        <span id="error1" class="error"></span>
+        <br><br>
+
+        <span style="color: red;">(required) </span> <label for="mark2">Mark 2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="number" id="mark2" placeholder="Enter Mark 2">
+        <span id="error2" class="error"></span>
+        <br><br>
+
+        <span style="color: red;">(required) </span><label for="mark3">Mark 3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="number" id="mark3" placeholder="Enter Mark 3">
+        <span id="error3" class="error"></span>
+        <br><br>
+
+        <span style="color: red;">(required) </span><label for="mark4">Mark 4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="number" id="mark4" placeholder="Enter Mark 4">
+        <span id="error4" class="error"></span>
+        <br><br>
+
+        <button type="button" onclick="calculateGPA()">Calculate GPA</button><br><br>
+        <textarea id="result" cols="30" rows="10"></textarea>
+    </form>
+    
+
+    
+</div>
+<span id="datetime"></span>
+    <script>
+        function calculateGPA() {
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+
+            const mark1 = parseFloat(document.getElementById("mark1").value);
+            const mark2 = parseFloat(document.getElementById("mark2").value);
+            const mark3 = parseFloat(document.getElementById("mark3").value);
+            const mark4 = parseFloat(document.getElementById("mark4").value);
+
+            clearErrorMessages();
+
+            let isValid = true;
+
+            // Check for invalid inputs and values below 0 for each mark
+            for (let i = 1; i <= 4; i++) {
+                const markValue = parseFloat(document.getElementById(`mark${i}`).value);
+                const errorElement = document.getElementById(`error${i}`);
+
+                if (isNaN(markValue) || markValue < 0) {
+                    errorElement.textContent = markValue < 0 ? "Mark cannot be below 0." : "Please enter a valid number.";
+                    isValid = false;
+                }
+            }
+
+            if (isValid) {
+                const total = mark1 + mark2 + mark3 + mark4;
+                const gpa = total / 4;
+                const formattedGPA = gpa.toFixed(2);
+                document.getElementById("result").textContent = `Name:${firstName}\nSchool :${lastName}\n Your AVG is: ${formattedGPA}`;
+            }
+        }
+
+        function clearErrorMessages() {
+            for (let i = 1; i <= 4; i++) {
+                const errorElement = document.getElementById(`error${i}`);
+                errorElement.textContent = "";
+            }
+        }
+    </script>
+    
+    <script>
+        
+        getCurrentDateTime();
+        
+      </script>
+      
+
+</body>
+</html>
